@@ -1,6 +1,7 @@
 package com.fh.service.impl;
 
 import com.fh.common.DataTableResult;
+import com.fh.common.ServerResponse;
 import com.fh.dao.MoviceDao;
 import com.fh.entity.po.MovieParam;
 import com.fh.entity.vo.Movie;
@@ -21,5 +22,11 @@ public class MovieServiceImpl implements MovieService {
         List<Movie> list= moviceDao.queryMovie(movieParam);
         Long count= moviceDao.queryCount(movieParam);
         return new DataTableResult(movieParam.getDraw(),count,count,list);
+    }
+
+    @Override
+    public ServerResponse addMovie(Movie movie) {
+        moviceDao.addMovie(movie);
+        return ServerResponse.success();
     }
 }

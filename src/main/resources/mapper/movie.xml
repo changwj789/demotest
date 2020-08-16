@@ -24,4 +24,9 @@
         <include refid="queryWhere"/>
     </select>
 
+
+    <select id="addMovie" parameterType="com.fh.entity.vo.Movie">
+        insert into t_movie (name,showTime,num,price,showHome,imgUrl) values
+        (#{name},#{showTime},#{num},#{price},#{showHome},#{imgUrl})
+    </select>
 </mapper>
