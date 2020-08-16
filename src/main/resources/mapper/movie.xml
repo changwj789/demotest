@@ -4,6 +4,24 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.fh.dao.MoviceDao">
+    <sql id="queryWhere">
+        <where>
+            <if test="name!=null and name!=''">
+                name like concat('%',#{name},'%')
+            </if>
+        </where>
+    </sql>
 
+    <select id="queryMovie" parameterType="com.fh.entity.po.MovieParam" resultType="com.fh.entity.vo.Movie">
+        SELECT tm.*,th.hname AS homeName FROM t_movie tm LEFT JOIN t_home th
+        ON tm.showHome=th.id
+        <include refid="queryWhere"/>
+        limit #{start},#{length}
+    </select>
+
+    <select id="queryCount" parameterType="com.fh.entity.po.MovieParam" resultType="long">
+        select count(*) from t_movie
+        <include refid="queryWhere"/>
+    </select>
 
 </mapper>
