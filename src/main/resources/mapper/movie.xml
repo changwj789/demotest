@@ -29,4 +29,8 @@
         insert into t_movie (name,showTime,num,price,showHome,imgUrl) values
         (#{name},#{showTime},#{num},#{price},#{showHome},#{imgUrl})
     </select>
+
+    <select id="updateMovie" parameterType="int">
+        update t_movie tm set num=num-1 where id=#{id}
+    </select>
 </mapper>

@@ -9,4 +9,6 @@ public interface MovieService {
     DataTableResult queryMovie(MovieParam movieParam);
 
     ServerResponse addMovie(Movie movie);
+
+    ServerResponse updateMovie(Integer id);
 }

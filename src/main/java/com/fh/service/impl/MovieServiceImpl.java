@@ -29,4 +29,10 @@ public class MovieServiceImpl implements MovieService {
         moviceDao.addMovie(movie);
         return ServerResponse.success();
     }
+
+    @Override
+    public ServerResponse updateMovie(Integer id) {
+        moviceDao.updateMovie(id);
+        return ServerResponse.success();
+    }
 }

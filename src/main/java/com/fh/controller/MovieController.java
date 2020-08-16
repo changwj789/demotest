@@ -32,8 +32,6 @@ public class MovieController {
     }
 
 
-
-
     @RequestMapping("uploadfile")
     public Map<String,Object> uploadfile(@RequestParam("image") MultipartFile file) throws IOException {
         Map result=new HashMap<String,Object>();
@@ -76,5 +74,10 @@ public class MovieController {
             del.delete();
         }
 
+    }
+
+    @RequestMapping("updateMovie")
+    public ServerResponse updateMovie(Integer id){
+        return movieService.updateMovie(id);
     }
 }

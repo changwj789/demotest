@@ -14,4 +14,6 @@ public interface MoviceDao extends BaseMapper<Movie> {
     Long queryCount(MovieParam movieParam);
 
     void addMovie(Movie movie);
+
+    void updateMovie(Integer id);
 }
